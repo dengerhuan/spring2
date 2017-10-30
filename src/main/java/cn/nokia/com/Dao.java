@@ -1,5 +1,7 @@
 package cn.nokia.com;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class Dao {
 
+    private Logger logger = LogManager.getLogger(Dao.class);
+
     private String dataSource = "dbcp";
 
     public void setDataSource(String dataSource) {
@@ -16,11 +20,12 @@ public class Dao {
     }
 
     public void save() {
-        System.out.println("save by " + dataSource);
+
+        logger.info("save by " + dataSource);
     }
 
     public Dao() {
-        System.out.println("Dao's Constructor...");
+        logger.debug("Dao's Constructot...");
     }
 
 }

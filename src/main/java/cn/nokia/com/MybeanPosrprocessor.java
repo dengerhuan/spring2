@@ -8,12 +8,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  */
 public class MybeanPosrprocessor implements BeanPostProcessor {
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
-
-        if (s.equals("service")) {
-            Service service = (Service) o;
-            service.setDao(new Dao());
-        }
-
         return o;
     }
 
